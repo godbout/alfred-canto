@@ -1,4 +1,5 @@
 # Features
 
-* Type English, Cantonese, uppercase, lowercase, accent, non-accent, intonations, whatever, your shit shows up in big letters.
+* Type English, Cantonese, uppercase, lowercase, accents, non-accents, intonations, whatever, your shit shows up in big letters.
 * So basically it shows you your English <-> Cantonese equivalent that you might have forgotten because Cantonese is hard.
+* If this doesn't make sense don't worry, it's all for myself.
