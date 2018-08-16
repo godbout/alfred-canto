@@ -7,3 +7,12 @@
 # Setup
 
 * There's an environment variable to setup: file where to record the new words equivalence
+
+# Usage
+
+* cnadd to add your words equivalence
+* cn to see the list of words recorded
+
+# Releases
+
+Workflow available here: [releases](https://github.com/godbout/alfred-canto/releases)
