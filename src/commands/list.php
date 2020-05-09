@@ -43,7 +43,7 @@ function getLines($file)
 {
     $handle = fopen($file, 'rb');
 
-    if (!handle) {
+    if (!$handle) {
         throw new Exception();
     }
 
