@@ -15,8 +15,8 @@ foreach (getLines($file) as $key => $line) {
 
     $workflow->result()
         ->uid(preg_replace("#[^a-zA-z ]#", "", (iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', "$line[1]-$line[2]"))))
-        ->title('🇺🇸️' .$line[2])
-        ->subtitle('🇲🇴️' .$line[1])
+        ->title('🇺🇸️' . $line[2])
+        ->subtitle('🇲🇴️' . $line[1])
         ->arg($line[1])
         ->cmd("Show the shit above in big letters if you can't see clearly 🖕🏽️", $line[2])
         ->largetype($line[2])
