@@ -48,7 +48,7 @@ function getLines($file)
     }
 
     while (!feof($handle)) {
-        yield fgetcsv($handle, 0, '|');
+        yield fgetcsv($handle, 0, '|', escape: '');
     }
 
     fclose($handle);
