@@ -4,7 +4,7 @@ use Alfred\Workflows\Workflow;
 
 require 'vendor/autoload.php';
 
-$workflow = new Workflow;
+$workflow = new Workflow();
 
 $file = getenv('file');
 
