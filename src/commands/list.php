@@ -25,7 +25,7 @@ foreach (getLines($file) as $key => $line) {
 
 $term = trim($argv[1]);
 
-$workflow->filterResults(preg_replace("#[^a-zA-z ]#", "", (iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', $term))), 'uid');;
+$workflow->filterResults(preg_replace("#[^a-zA-z ]#", "", (iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', $term))), 'uid');
 
 if (empty(json_decode($workflow->output(), true)['items'])) {
     $workflow->result()
