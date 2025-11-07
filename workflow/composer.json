@@ -1,11 +1,5 @@
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/godbout/alfred-workflow"
-        }
-    ],
     "require": {
-        "joetannenbaum/alfred-workflow": "dev-master"
+        "godbout/alfred-workflow-scriptfilter": "^2.4"
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-use Alfred\Workflows\Workflow;
-
 require 'vendor/autoload.php';
 
-$workflow = new Workflow();
+use Godbout\Alfred\Workflow\ScriptFilter;
+use Godbout\Alfred\Workflow\Item;
+use Godbout\Alfred\Workflow\Mods\Cmd;
 
 $file = getenv('file');
 
@@ -13,27 +13,34 @@ foreach (getLines($file) as $key => $line) {
         continue;
     }
 
-    $workflow->result()
-        ->uid(preg_replace("#[^a-zA-z ]#", "", (iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', "$line[1]-$line[2]"))))
-        ->title('🇺🇸️' . $line[2])
-        ->subtitle('🇲🇴️' . $line[1])
-        ->arg($line[1])
-        ->cmd("Show the shit above in big letters if you can't see clearly 🖕🏽️", $line[2])
-        ->largetype($line[2])
-        ->valid(true);
+    ScriptFilter::add(
+        Item::create()
+            ->title('🇺🇸️' . $line[2])
+            ->subtitle('🇨🇳' . $line[1])
+            ->arg($line[1])
+            ->valid()
+            ->match($line[1] . $line[2])
+            ->mod(
+                Cmd::create()
+                    ->subtitle("Show the shit above in big letters if you can't see clearly 🖕🏽️")
+            )
+            ->largetype($line[2])
+    );
 }
 
-$term = trim($argv[1]);
+$output = ScriptFilter::output();
 
-$workflow->filterResults(preg_replace("#[^a-zA-z ]#", "", (iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', $term))), 'uid');
+if (empty(json_decode($output, true)['items'])) {
+    ScriptFilter::add(
+        Item::create()
+            ->title("Nothing to see 🖕🏼️")
+            ->subtitle('dick')
+    );
 
-if (empty(json_decode($workflow->output(), true)['items'])) {
-    $workflow->result()
-        ->title("Nothing to see 🖕🏼️")
-        ->subtitle('dick');
+    $output = ScriptFilter::output();
 }
 
-echo $workflow->output();
+echo $output;
 
 /**
  * Functions
